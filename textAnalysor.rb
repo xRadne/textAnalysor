@@ -3,8 +3,12 @@ def Analyse(text)
     freqs.default = 0
     
     text.each_char {|char| freqs[char] += 1}
+    words = text.split(' ')
     puts "Frequency of every character in text: "
     ("a".."z").each {|char| puts "#{char} : #{freqs[char]}"}
+    number = 0
+    words.each {|word| number += 1 }
+    puts "Number of words: #{number}" 
 end
 
 def GetTextFrom(path)
@@ -25,8 +29,8 @@ input = gets.chomp
 case input[0]
 when nil
     puts "No path or text was given. Runs example.txt instead"
-    Analyse("example.txt")
-when "/"
+    Analyse(GetTextFrom("example.txt"))
+when '/'
     input.slice!(0)
     puts "Analysing path: '#{input}'"
     Analyse(GetTextFrom(input))
