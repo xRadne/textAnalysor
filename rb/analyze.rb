@@ -1,4 +1,4 @@
-def Analyse(text)
+def Analyze(text)
     freqs = {}
     freqs.default = 0
     
