@@ -3,18 +3,26 @@ require_relative 'analyze'
 puts "Text analyser!"
 puts "--------------"
 puts "Input som text to analyse"
-puts "You can also input a path starting by '/'"
-print ": "
+puts "You can also input a relative path starting by '/'" 
+puts "or an absolute path e.g 'C:/Users/...''"
+print "Input: "
 input = gets.chomp
 
 case input[0]
-when nil
+when nil #No input
     puts "No path or text was given. Runs example.txt instead"
     Analyse(GetTextFrom("example.txt"))
-when '/'
+when '/' #Relative path
     input.slice!(0)
-    puts "Analysing path: '#{input}'"
-    Analyse(GetTextFrom(input))
-else
+    path = input
+    puts "Analysing path: '#{path}'"
+    Analyse(GetTextFrom(path))
+when 'C', 'D' #Absolute path
+    path = input
+    puts "Analysing path: '#{path}'"
+    File.open(path).each do |line| 
+        puts line 
+    end   
+else #Text input
     Analyse(input)
 end
