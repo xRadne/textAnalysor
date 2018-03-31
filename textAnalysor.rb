@@ -1,13 +1,19 @@
 require_relative 'rb/analyze'
+require_relative 'rb/cmdHelpers'
 
 puts "Text analyser!"
 puts "--------------"
 puts "Input some text to analyse"
 puts "You can also input a relative path starting by '/'" 
 puts "or an absolute path e.g 'C:/Users/...''"
-print "Input: "
+print "Input: " 
 input = gets.chomp
 
+askFor("Do you want to know word frequencies?", 
+    method(def Y() Analyse("Alexander Radne") end), 
+    method(def N() puts "nooo" end))
+
+=begin
 case input[0]
 when nil #No input
     path = "resources/example.txt"
@@ -27,3 +33,4 @@ when 'C', 'D' #Absolute path
 else #Text input
     Analyse(input)
 end
+=end
