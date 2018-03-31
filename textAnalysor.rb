@@ -2,7 +2,7 @@ require_relative 'analyze'
 
 puts "Text analyser!"
 puts "--------------"
-puts "Input som text to analyse"
+puts "Input some text to analyse"
 puts "You can also input a relative path starting by '/'" 
 puts "or an absolute path e.g 'C:/Users/...''"
 print "Input: "
@@ -15,11 +15,13 @@ when nil #No input
 when '/' #Relative path
     input.slice!(0)
     path = input
-    puts "Analysing path: '#{path}'"
+    fileName = extractFileName(path)
+    puts "Analysing file: '#{fileName}'"
     Analyse(GetTextFrom(path))
 when 'C', 'D' #Absolute path
     path = input
-    puts "Analysing path: '#{path}'"
+    fileName = extractFileName(path)
+    puts "Analysing file: '#{fileName}'"
     Analyse(GetTextFrom(path))
 else #Text input
     Analyse(input)
