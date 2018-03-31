@@ -1,4 +1,4 @@
-require_relative 'analyze'
+require_relative 'rb/analyze'
 
 puts "Text analyser!"
 puts "--------------"
@@ -10,9 +10,9 @@ input = gets.chomp
 
 case input[0]
 when nil #No input
-    path = "example.txt"
+    path = "resources/example.txt"
     puts "No path or text was given. Analysing file '#{extractFileName(path)}' instead"
-    Analyse(GetTextFrom("example.txt"))
+    Analyse(GetTextFrom(path))
 when '/' #Relative path
     input.slice!(0)
     path = input
