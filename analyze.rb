@@ -20,8 +20,7 @@ def GetTextFrom(path)
 end
 
 def extractFileName(path)
-    text = ""
     parts = path.split(/[.'\\\/]/)
-    text += parts[-2] + "." + parts[-1]
+    text = parts[-2] + "." + parts[-1]
     return text
 end
