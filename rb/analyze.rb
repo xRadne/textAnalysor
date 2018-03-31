@@ -2,7 +2,7 @@ def Analyse(text)
     freqs = {}
     freqs.default = 0
     
-    text.each_char {|char| freqs[char] += 1}
+    text.each_char {|char| freqs[char.downcase] += 1}
     words = text.split(' ')
     puts "Frequency of every character in text: "
     ("a".."z").each {|char| puts "#{char} : #{freqs[char]}" if freqs[char] != 0}
