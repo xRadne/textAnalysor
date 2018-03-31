@@ -6,9 +6,20 @@ def Analyse(text)
     words = text.split(' ')
     puts "Frequency of every character in text: "
     ("a".."z").each {|char| puts "#{char} : #{freqs[char]}" if freqs[char] != 0}
-    number = 0
-    words.each {|word| number += 1 }
-    puts "Number of words: #{number}" 
+    
+    puts "Frequency of every word in text: "
+    wordList = wordFrequencies(text).sort().each {|word, times| puts "#{word} : #{times}"}
+end
+
+def wordFrequencies(text)
+    words = text.split(" ")
+
+    wordFreqs = {}
+    wordFreqs.default = 0 
+    words.each do |word|
+        wordFreqs[word.downcase] += 1
+    end
+    return wordFreqs
 end
 
 def GetTextFrom(path)
