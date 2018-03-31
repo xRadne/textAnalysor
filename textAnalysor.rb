@@ -20,9 +20,7 @@ when '/' #Relative path
 when 'C', 'D' #Absolute path
     path = input
     puts "Analysing path: '#{path}'"
-    File.open(path).each do |line| 
-        puts line 
-    end   
+    Analyse(GetTextFrom(path))
 else #Text input
     Analyse(input)
 end
