@@ -10,7 +10,8 @@ input = gets.chomp
 
 case input[0]
 when nil #No input
-    puts "No path or text was given. Runs example.txt instead"
+    path = "example.txt"
+    puts "No path or text was given. Analysing file '#{extractFileName(path)}' instead"
     Analyse(GetTextFrom("example.txt"))
 when '/' #Relative path
     input.slice!(0)
