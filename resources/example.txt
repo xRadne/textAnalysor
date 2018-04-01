@@ -1,2 +1,2 @@
-This is some example text for the text analysor script
-The code is written in Ruby by xRadne
+This is some example text for the text analysor script.
+The code is written in Ruby by xRadne.
