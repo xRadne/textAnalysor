@@ -1,4 +1,9 @@
-def inputPath() 
+def inputPath(path = "")
+    unless path == "" {
+        puts "Analysing file '#{extractFileName(path)}'"
+        return GetTextFrom(path)  
+    }
+    
     input = gets.chomp
     case input[0]
     when nil #No input
